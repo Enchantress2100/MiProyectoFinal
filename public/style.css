@@ -1,0 +1,70 @@
+body{
+    background-image: linear-gradient(to right, #FC7006, #EFF507);
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Redressed', cursive;
+    color: white;
+}
+.lowood{
+   position: absolute; top: 50px; z-index:40;
+}
+
+.lowoodProfesores{
+    position: absolute; margin-left: 40px; z-index:40;
+}
+
+.asistencia{
+    position:absolute; top: 250px; z-index: 40;
+    
+}
+
+@media(min-width:700px) {
+    .asistencia{
+    position:absolute; margin-left: -40px; top: 250px; z-index: 40;  
+}
+}
+
+.botonInspector{
+    display: inline-block;
+    position: absolute; top: 350px; margin-left: -30px; z-index:40;
+}
+.botonProfesor{
+    display: inline-block;
+    position: absolute; top: 350px; margin-left: 130px; z-index:40;
+}
+
+.boton{
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+    border-radius: 6px;
+    color: #FFFFFF;
+    height: 50px;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.sesionp{
+    position:absolute; top: 120px;  z-index: 40;
+    font-size: 25px;
+}
+
+@media(min-width:700px) {
+    .sesionp{
+    position:absolute; margin-left: 30px; top: 130px; z-index: 40; 
+    font-size: 25px; 
+}
+}
+
+.formulario{
+    width: 300px;
+    position:absolute; margin-left: -30px; top: 180px; z-index: 40;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #FC7006, #EFF507);
+}
+@media(min-width:700px) {
+    .formulario{
+    position:absolute; margin-left: -20px; top: 180px; z-index: 40;
+    background-image: linear-gradient(to right, #FC7006, #EFF507);  
+}
+}
+
+

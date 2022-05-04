@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 //disponibilizar carpeta publica
 app.use(express.static("public"));
 
-//middleware para cargar las librerias de bootstrap y jquery
+//middleware para cargar las librerias de bootstrap, y jquery
 app.use(
   "/bootstrap",
   express.static(__dirname + "/node_modules/bootstrap/dist/css")
@@ -58,6 +58,26 @@ const secretKey = "Mi llave secreta";
 
 //puerto para levantar el servidor en Heroku
 //const port = process.env.PORT || 5000;
+
+//ruta para visualizar las tareas
+app.get("/", async (req, res) => {
+  res.render("inicio", {
+    layout: "inicio",
+  });
+});
+
+app.get("/profesores", async (req, res) => {
+  res.render("profesores", {
+    layout: "profesores",
+  });
+});
+
+app.get("/inspectores", async (req, res) => {
+  res.render("inspectores", {
+    layout: "inspectores",
+  });
+});
+
 
 //levantar el servidor
 app.listen(3000, () => console.log("Server on and working OK"));
