@@ -13,19 +13,47 @@
 <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
 </head>
 <body>
+
 <div class="mx-auto" style="width:200px;">
   <a href="/"><img src="EscudoLowood.png" alt="Lowood" class="lowoodProfesores" height="120px"></a>
 </div>
 
-<div class="mx-auto" style="width:300px;">
-  <h1 class="sesionp">Inicio de Sesión para Profesores</h1>
+<div class="mx-auto" style="width:200px;">
+  <h1 class="sesionExito">Bienvenid@ profesor@ {{ profesor.nombre }}</h1> 
 </div>
 
 <div class="container">
 <img src="boys3.jpeg" alt="estudiantes" width="100%">
 </div>
 
-{{>loginProfesor}}
+<div class="container contenedorCursos">
+  <div class="row row-cols-xl-6 row-cols-sm-4 row-cols-md-4">
+    <div class="col ms-5">
+      <a href="/listaCursoProfesor1"><button class="boton">1ro.Básico</button></a>
+    </div>
+    <div class="col ms-5">
+      <a href="/listaCursoProfesor2"><button class="boton">2do.Básico</button></a>
+    </div>
+    <div class="col ms-5">
+       <a href="listaCursoProfesor3"><button class="boton">3ro.Básico</button></a>
+    </div>
+     <div class="col ms-5">
+      <a href="listaCursoProfesor4"><button class="boton">4to.Básico</button></a>
+    </div>
+     <div class="col ms-5">
+      <a href="listaCursoProfesor5"><button class="boton">5to.Básico</button></a>
+    </div>
+     <div class="col ms-5">
+      <a href="listaCursoProfesor6"><button class="boton">6to.Básico</button></a>
+    </div>
+     <div class="col ms-5">
+       <a href="listaCursoProfesor7"><button class="boton">7mo.Básico</button></a>
+    </div>
+     <div class="col ms-5">
+      <a href="listaCursoProfesor8"><button class="boton">8vo.Básico</button></a>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

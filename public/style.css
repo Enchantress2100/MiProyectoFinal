@@ -13,23 +13,41 @@ body{
 }
 
 .asistencia{
-    position:absolute; top: 250px; z-index: 40;
-    
+    position:absolute; top: 350px; z-index: 40;
 }
 
-@media(min-width:700px) {
+@media(min-width:768px) {
     .asistencia{
-    position:absolute; margin-left: -40px; top: 250px; z-index: 40;  
+    position:absolute; margin-left: -40px; top: 350px; z-index: 40;  
 }
 }
 
 .botonInspector{
-    display: inline-block;
-    position: absolute; top: 350px; margin-left: -30px; z-index:40;
+    position: absolute; margin-left: 250px; z-index:40; top: 40px;
 }
 .botonProfesor{
-    display: inline-block;
-    position: absolute; top: 350px; margin-left: 130px; z-index:40;
+    position: absolute; z-index:40; top: 40px;
+}
+.botonInspectorGeneral{
+    position: absolute; margin-left: -130px; z-index:40; top: 40px;
+}
+
+@media(min-width:768px) {
+    .botonProfesor{
+    position:absolute; margin-left: 50px; z-index: 40;  
+}
+}
+
+@media(min-width:1900px) {
+    .botonProfesor{
+    position:absolute; margin-left: -40px; z-index: 40;
+}
+.botonInspector{
+    position:absolute; margin-left: 40px; z-index: 40;
+}
+.botonInspectorGeneral{
+    position:absolute; margin-left: -50px; z-index: 40; 
+}
 }
 
 .boton{
@@ -67,4 +85,184 @@ body{
 }
 }
 
+.sesionExito{
+    position:absolute; margin-left: -50px; top: 130px; z-index: 40; 
+    font-size: 25px;
+}
 
+@media(min-width:700px) {
+    .sesionExito{
+    position:absolute; margin-left: -120px; top: 150px; z-index: 40; 
+    font-size: 25px; 
+}
+}
+
+.contenedorCursos{
+    position: absolute; z-index:40;
+}
+
+@media(min-width:700px) {
+    .contenedorCursos{
+    position:absolute; top: 200px; z-index: 40;
+    font-size: 25px; 
+    display: inline-block;
+    margin-left: 100px;
+}
+}
+
+@media(min-width:1900px) {
+    .contenedorCursos{
+    position:absolute; top: 200px; z-index: 40;
+    font-size: 25px; 
+    display: inline-block;
+    margin-left: 400px;
+}
+}
+
+.botonAcceder{
+     position: absolute; top: 420px; z-index:40;
+     display: inline-block;
+     margin-left: 350px;
+}
+
+@media(min-width:700px) {
+    .botonAcceder{
+     position: absolute; top: 400px; z-index:40;
+     display: inline-block;
+     margin-left: 300px;
+}
+}
+
+.tituloCurso{
+    position:absolute; margin-left: -5px; top: 130px; z-index: 40; 
+    font-size: 35px;
+}
+
+@media(min-width:700px) {
+    .tituloCurso{
+    position:absolute; margin-left: -120px; top: 150px; z-index: 40; 
+    font-size: 45px; 
+}
+}
+
+.contenedorCursoEspecifico{
+     position: absolute; top: 250px; z-index:40;
+}
+
+ @media (min-width: 768px) { 
+     .contenedorCursoEspecifico{
+    position:absolute; top: 200px; z-index: 40;
+    margin-left: 300px;
+  }
+}
+
+@media(min-width:1900px) {
+    .contenedorCursoEspecifico{
+    position:absolute; top: 200px; z-index: 40;
+    margin-left: 600px;
+}
+}
+
+.contenedorCursoEspecifico1{
+     position: absolute; top: 250px; z-index:40;
+}
+
+ @media (min-width: 768px) { 
+     .contenedorCursoEspecifico1{
+    position:absolute; top: 200px; z-index: 40;
+    margin-left: 400px;
+  }
+}
+
+@media(min-width:1900px) {
+    .contenedorCursoEspecifico1{
+    position:absolute; top: 200px; z-index: 40;
+    margin-left: 700px;
+}
+}
+
+.botonGrabar{
+    position: absolute; top: 400px; margin-left: 130px; z-index:40;
+}
+
+.botonEditar{
+    position: absolute; z-index: 40; 
+    display: inline-block;
+}
+.botonBorrar{
+    position: absolute; z-index: 40; 
+}
+
+ @media (min-width: 768px) { 
+     .botones{
+   position:absolute; z-index: 40;
+   margin-left: -10px ;
+  }
+}
+
+@media(min-width:1900px) {
+    .botones{
+    position:absolute; z-index: 40; 
+    margin-left: 10px;
+}
+}
+
+ @media (min-width: 768px) { 
+     .botones1{
+   position:absolute; top: 390px; z-index: 40;
+   margin-left: 100px ;
+  }
+}
+
+@media(min-width:1900px) {
+    .botones1{
+    position:absolute; top: 450px; z-index: 40; 
+    margin-left: 580px;
+}
+}
+
+.registro{
+    position:absolute; top: 200px; z-index: 40; 
+    margin-left:-20px;
+}
+
+.agregarBox{
+     position:absolute; top:300px; z-index: 40;
+     margin-left: 170px;
+}
+
+.editarBox{
+    position:absolute; top:300px; z-index: 40;
+    margin-left: 170px;
+}
+
+.actualizar{
+    position:absolute; top: 200px; z-index: 40; 
+    margin-left:-90px;
+}
+
+@media(min-width:1900px) {
+    .actualizarRegistro{
+    position:absolute; top: 450px; z-index: 40; 
+    margin-left: 900px;
+}
+}
+
+ @media (min-width: 768px) { 
+     .actualizarRegistro{
+   position:absolute; top: 300px; z-index: 40;
+   margin-left: 500px ;
+  }
+}
+
+.confirmar{
+    position:relative; top: 200px; z-index: 40;
+    margin-left: 600px;
+}
+
+.formularioInspectorGeneral{
+    width: 300px;
+    position:absolute; margin-left: -30px; top: 300px; z-index: 40;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #FC7006, #EFF507);
+}
