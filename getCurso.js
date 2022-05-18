@@ -11,7 +11,10 @@ const db = async (curso) => {
   );
   await client.connect();
   const res = await client.query(
-`SELECT row_number() over (order by estudiantes.Nombre),  foto, nombre,apellidos, cursoActual FROM CURSO INNER JOIN estudiantes ON curso.idalumno= estudiantes.idalumno WHERE cursoActual = '${curso}'`
+    `SELECT row_number() over (order by estudiantes.Nombre),  foto, nombre,apellidos, cursoActual 
+FROM CURSO INNER JOIN estudiantes ON curso.idalumno= estudiantes.idalumno 
+WHERE cursoActual = '${curso}'
+and estudiantes.estado = 'OK'`
   );
   await client.end();
   return res.rows;

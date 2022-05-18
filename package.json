@@ -1,1 +1,40 @@
-{"scripts":{"start":"node index.js","cypress:open":"cypress open"},"dependencies":{"body-parser":"^1.20.0","bootstrap":"^5.1.3","dotenv":"^16.0.0","express":"^4.18.0","express-fileupload":"^1.3.1","express-handlebars":"^6.0.5","express-middleware":"^1.1.0","file-system":"^1.2.2","jquery":"^3.6.0","jsonwebtoken":"^8.5.1","normalize.css":"^8.0.1","pg":"^8.7.3"},"devDependencies":{"cypress":"^9.6.0"}}
+{
+  "scripts": {
+    "start": "node index.js",
+    "cypress:open": "cypress open",
+    "test": "node index.js",
+    "migrate:db": "node db.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.1.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "express-fileupload": "^1.3.1",
+    "express-handlebars": "^6.0.5",
+    "express-middleware": "^1.1.0",
+    "file-system": "^1.2.2",
+    "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "normalize.css": "^8.0.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "cypress": "^9.6.0"
+  },
+  "name": "miproyectofinal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enchantress2100/MiProyectoFinal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Enchantress2100/MiProyectoFinal/issues"
+  },
+  "homepage": "https://github.com/Enchantress2100/MiProyectoFinal#readme",
+  "description": ""
+}

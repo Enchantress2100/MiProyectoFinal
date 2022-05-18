@@ -23,6 +23,7 @@ CREATE TABLE estudiantes(
     edad INT,
     fechaNacimiento DATE NOT NULL,
     foto VARCHAR(255)NOT NULL,
+    estado VARCHAR(250),
     PRIMARY KEY (idAlumno)
 );
 

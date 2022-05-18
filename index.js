@@ -65,7 +65,21 @@ const getCurso = require('./getCurso')
 //visualizar estudiantes por curso (inspectores)
 const getCursoInspector = require('./getCursoInspector')
 //insertar estudiantes desde la interfaz de inspector
-const insertarEstudiante= require('./agregarEstudiante')
+const insertarEstudiante = require('./agregarEstudiante')
+//editar registro de estudiantes desde la interfaz de inspector
+const editarEstudiante = require('./actualizarEstudiante')
+//visualizar estudiantes por rut (para editar o )
+const getEstudiantes = require('./getEstudiantes')
+//eliminar registro de estudiantes por rut
+const eliminarRegistro = require('./eliminarRegistro')
+//traer cambios a confirmar
+const traerCambios = require('./traerCambios')
+//traer registros s borrar
+const traerEliminacion = require('./traerPendientesEliminacion')
+//confirmar cambios
+const confirmarCambios=require('./confirmarCambios')
+//confirmar eliminaciones
+const confirmarEliminacion = require('./confirmarEliminacion')
 
 //ruta para visualizar las tareas
 app.get("/", async (req, res) => {
@@ -173,50 +187,6 @@ app.get("/loginInspector", async (req, res) => {
   //email: 'pilar.apablazap@gmail.com',
   //password: 'pilarapablaza2006',
 
-//visualizar validacion del ingreso para el Inspector General
-app.get("/loginInspectorGeneral", async (req, res) => {
-  const { nombre, email, password } = req.query;
-  const inspecGeneral = inspectorGeneral.find(
-    (g) => g.email == email && g.password == password
-  );
-  if (inspecGeneral) {
-    const token = jwt.sign(
-      {
-        exp: Math.floor(Date.now() / 1000) + 120,
-        data: inspecGeneral,
-      },
-      secretKey
-    );
-    res.send(
-      `<script>alert("Bienvenid@ Inspector@ ${inspecGeneral.nombre} ");window.location.href = "/Dashboard3?token=${token}"</script>`
-    );
-  } else {
-    res
-      .status(401)
-      .send(
-        `<script>alert("Credenciales erróneas"); window.location.href = "/"</script>`
-      );
-  }
-});
-
-//disponibilizar ruta restringida para los inspectores autorizados. En caso contrario devolver mensaje de error y su descripcion (estado HTTP)
-  app.get("/Dashboard3", (req, res) => {
-    const { token } = req.query;
-    jwt.verify(token, secretKey, (err, { data: inspecGeneral} ) => {
-      err
-        ? res.status(401).send({
-            error: "401 Unauthorized",
-            message: "no está autorizado a acceder a esta página",
-          })
-        : res.render("loginExitoInspectorGeneral", {
-          layout: "loginExitoInspectorGeneral",
-          inspecGeneral
-          });
-    });
-  });
-  //email: "marialuz.maureira@gmail.com",
-  //password: "marialuz.forever"
-  
   //visualizar listas de curso (vista profesores)
   //1ro.basico
 app.get("/listaCursoProfesor1", async (req, res) => {
@@ -398,7 +368,99 @@ app.post("/agregarEstudiante", async (req, res) => {
       layout: 'loginExitoInspector',
     })
     })
+})
+  
+//ruta para editar estudiantes existentes desde la interfaz de inspector
+app.post("/actualizarEstudiante", async (req, res) => {
+  const {curso,rut,nombre,apellido,edad,apoderado,telefono,direccion,alergias,salud} = req.body;
+  await editarEstudiante(curso,rut,nombre,apellido,edad,apoderado,telefono,direccion,alergias,salud);
+  res.render("listo", {
+    layout: "listo",
+  });
+});
+app.get('/actualizarEstudiante', async (req, res) => {
+  const { rut } = req.query
+  const estudiante1 = await getEstudiantes(rut)
+  const estudiantes = (estudiante1[0])//porque estudiante1 no funciona asi que nos vamos al indice tratandolo estrictamente como array
+  res.render("editar", {
+          layout: "editar",
+          estudiantes,
+        });
+});
+
+//ruta para eliminar registro de estudiantes
+//traer rut de los cambios a confirmar
+//traer rut de los registros a borrar
+
+app.get('/eliminarRegistro', async (req, res) => {
+  const { rut } = req.query
+  const cambios = await traerCambios()
+  const borrar = await traerEliminacion()
+  await eliminarRegistro(rut)
+  res.render('eliminar', {
+    layout: 'eliminar',
+    rut,
+    cambios,
+    borrar
   })
+})
+
+//visualizar validacion del ingreso para el Inspector General
+app.get("/loginInspectorGeneral", async (req, res) => {
+  const { nombre, email, password } = req.query;
+  const inspecGeneral = inspectorGeneral.find(
+    (g) => g.email == email && g.password == password
+  );
+  if (inspecGeneral) {
+    const token = jwt.sign(
+      {
+        exp: Math.floor(Date.now() / 1000) + 120,
+        data: inspecGeneral,
+      },
+      secretKey
+    );
+    res.send(
+      `<script>alert("Bienvenid@ Inspector@ ${inspecGeneral.nombre} ");window.location.href = "/Dashboard3?token=${token}"</script>`
+    );
+  } else {
+    res
+      .status(401)
+      .send(
+        `<script>alert("Credenciales erróneas"); window.location.href = "/"</script>`
+      );
+  }
+});
+
+//disponibilizar ruta restringida para los inspectores autorizados. En caso contrario devolver mensaje de error y su descripcion (estado HTTP)
+  app.get("/Dashboard3", async (req, res) => {
+    const { token } = req.query;
+    const cambios = await traerCambios()
+    const borrar = await traerEliminacion()
+    jwt.verify(token, secretKey, (err, { data: inspecGeneral} ) => {
+      err
+        ? res.status(401).send({
+            error: "401 Unauthorized",
+            message: "no está autorizado a acceder a esta página",
+          })
+        : res.render("loginExitoInspectorGeneral", {
+          layout: "loginExitoInspectorGeneral",
+          inspecGeneral,
+          cambios, 
+          borrar
+          });
+    });
+  });
+  //email: "marialuz.maureira@gmail.com",
+  //password: "marialuz.forever"
+
+//confirmar los cambios
+app.get('/confirmarCambios', async (req, res) => {
+  await confirmarCambios()
+});
+//confirmar las eliminaciones
+app.get("/confirmarEliminacion", async (req, res) => {
+  await confirmarEliminacion();
+});
 
 //levantar el servidor
 app.listen(3000, () => console.log("Server on and working OK"));

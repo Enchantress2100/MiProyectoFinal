@@ -243,21 +243,28 @@ body{
 
 @media(min-width:1900px) {
     .actualizarRegistro{
-    position:absolute; top: 450px; z-index: 40; 
-    margin-left: 900px;
+    position:absolute; z-index: 40; margin-left: -100px;
 }
 }
 
  @media (min-width: 768px) { 
      .actualizarRegistro{
-   position:absolute; top: 300px; z-index: 40;
-   margin-left: 500px ;
+   position:absolute; z-index: 40; margin-left: 500px ;
   }
 }
 
-.confirmar{
-    position:relative; top: 200px; z-index: 40;
+@media (min-width: 768px) { 
+     .confirmar{
+    position:absolute; top: 200px; z-index: 40;
+    margin-left: 200px;
+  }
+}
+
+@media (min-width: 1900px) { 
+     .confirmar{
+    position:absolute; top: 200px; z-index: 40;
     margin-left: 600px;
+  }
 }
 
 .formularioInspectorGeneral{

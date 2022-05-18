@@ -13,7 +13,7 @@
 <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
 </head>
 <body>
-    <div class="py-4 container table-responsive" style="margin-left:-80px;">
+    <div class="py-4 container-fluid table-responsive" style="margin-left:-140px;">
       <table class="table table-dark table-hover">
         <thead>
           {{#if curso}}
@@ -29,6 +29,8 @@
             <th scope="col">Alergias</th>
             <th scope="col">Salud</th>
             <th scope="col">Asistencia</th>
+            <td scope="col">Actualizar Datos</td>
+            <td scope="col">Eliminar Datos</td>
           </tr>
           {{/if}}
         </thead>
@@ -46,6 +48,8 @@
             <td>{{this.alergias}}</td>
             <td>{{this.enfermedades}}</td>
             <td>{{this.asistencia}}</td>
+            <td><a href="/actualizarEstudiante?rut={{this.rut}}"><button type="button" class="btn botonEditar btn-warning ">Editar</button></a></td>
+            <td><a href="/eliminarRegistro?rut={{this.rut}}"> <button type="button" class="btn botonBorrar btn-danger">Borrar</button></a></td>
           </tr>
           {{/each}}
         </tbody> 
@@ -53,21 +57,15 @@
       <div class="container botones">
   <div class="row">
     <div class="col">
-  <a href="/agregarEstudiante"><button type="button" class="btn botonAgregar btn-success ms-5">Agregar estudiante</button></a>
-    </div>
-    <div class="col">
-  <a href="*"><button type="button" class="btn botonEditar btn-warning ms-5 ">Editar datos del estudiante</button></a>
-    </div>
-    <div class="col">
- <a href="*"> <button type="button" class="btn botonBorrar btn-danger ms-5">Eliminar registro del estudiante</button></a>
+  <a href="/agregarEstudiante"><button type="button" class="btn botonAgregar btn-success">Agregar estudiante</button></a>
     </div>
 </div>
 </div>
     </div>
 
-    
+<script>
 
-
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
