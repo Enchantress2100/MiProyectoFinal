@@ -16,8 +16,8 @@ INNER JOIN apoderados ON estudiantes.idalumno=apoderados.idalumno
 LEFT JOIN saludestudiante ON estudiantes.idalumno=saludestudiante.idalumno
 INNER JOIN asistencia ON estudiantes.idAlumno = asistencia.idAlumno 
 WHERE cursoActual='${curso}'
-and estudiantes.estado = 'OK';`
-  );
+and estudiantes.estado = 'OK'
+and to_char( asistencia.fechahora, 'MM-DD-YYYY')= to_char( now(), 'MM-DD-YYYY')`);
   await client.end();
   return res.rows;
 };
