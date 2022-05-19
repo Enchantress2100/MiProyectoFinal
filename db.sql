@@ -1,9 +1,9 @@
 --crear base de datos libro, resetearla si es que ya existe.
-DROP DATABASE libro IF EXISTS;
-CREATE DATABASE libro;
+--DROP DATABASE libro IF EXISTS;
+--CREATE DATABASE libro;
 
 --acceder desde consola a la base de datos libro
-\c libro
+--\c libro
 
 --SELECT * FROM estudiantes;
 -- SELECT * FROM apoderados;

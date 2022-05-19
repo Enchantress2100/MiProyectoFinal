@@ -2,13 +2,12 @@ require("dotenv").config();
 
 const { Client } = require("pg");
 const db = async (curso, rut, nombre, apellidos, edad, fechaNacimiento, foto, apoderado, numeroApoderado, direccion,alergias,salud) => {
-  const client = new Client();
-  //{
-  //connectionString: process.env.DATABASE_URL,
-  // ssl: {
-  //rejectUnauthorized: false,
-  //},}
-    
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  }); 
   await client.connect();
   const res = await client.query(
     `INSERT INTO estudiantes(rut,nombre,apellidos,edad,fechaNacimiento,foto, estado) VALUES('${rut}','${nombre}','${apellidos}','${edad}','${fechaNacimiento}','${foto}', 'Pendiente');

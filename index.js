@@ -57,7 +57,7 @@ const jwt = require("jsonwebtoken");
 const secretKey = "Mi llave secreta";
 
 //puerto para levantar el servidor en Heroku
-//const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 
 //visualizar estudiantes por curso (profesores)
@@ -473,4 +473,4 @@ app.get("/confirmarEliminacion", async (req, res) => {
 });
 
 //levantar el servidor
-app.listen(3000, () => console.log("Server on and working OK"));
+app.listen(port, () => console.log("Server on and working OK"));
