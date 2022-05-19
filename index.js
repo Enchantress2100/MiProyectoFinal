@@ -80,6 +80,8 @@ const traerEliminacion = require('./traerPendientesEliminacion')
 const confirmarCambios=require('./confirmarCambios')
 //confirmar eliminaciones
 const confirmarEliminacion = require('./confirmarEliminacion')
+//insertar asistencia
+const insertarAsistencia= require('./insertarAsistencia')
 
 //ruta para visualizar las tareas
 app.get("/", async (req, res) => {
@@ -269,6 +271,13 @@ app.get("/listaCursoProfesor8", async (req, res) => {
   });
 });
 
+//ruta para insertar la asistencia
+app.get('/asistencia', async (req, res) => {
+  const asistencia = req.query
+  console.log(asistencia)
+  await insertarAsistencia(asistencia.rut, asistencia.estado)
+})
+
 //visualizar listas de curso (vista inspectores)
 //1ro.basico
 app.get("/listaCursoInspector1", async (req, res) => {
@@ -343,6 +352,7 @@ app.get("/listaCursoInspector7", async (req, res) => {
 //8vo.basico
 app.get("/listaCursoInspector8", async (req, res) => {
   const curso = await getCursoInspector("Octavo Basico");
+  console.log(curso)
   const c = "Octavo Básico";
   res.render("listaCursoInspector", {
     layout: "listaCursoInspector",
@@ -362,7 +372,7 @@ app.post("/agregarEstudiante", async (req, res) => {
   const { foto } = req.files
   const { name } = foto
   const { curso, nombre, edad, fechaNacimiento, apellidos, rut, apoderado, direccion, numeroApoderado, salud, alergias } = req.body;
-  await insertarEstudiante(curso, rut, nombre, apellidos, edad, fechaNacimiento, foto, apoderado, numeroApoderado, direccion, alergias, salud);
+  await insertarEstudiante(curso, rut, nombre, apellidos, edad, fechaNacimiento, name, apoderado, numeroApoderado, direccion, alergias, salud);
   foto.mv(`${__dirname}/public/img/${name}`, (err) => {
     res.render('loginExitoInspector', {
       layout: 'loginExitoInspector',

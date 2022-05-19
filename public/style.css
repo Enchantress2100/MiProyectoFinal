@@ -115,7 +115,7 @@ body{
     position:absolute; top: 200px; z-index: 40;
     font-size: 25px; 
     display: inline-block;
-    margin-left: 400px;
+    margin-left: 500px;
 }
 }
 
@@ -170,7 +170,7 @@ body{
  @media (min-width: 768px) { 
      .contenedorCursoEspecifico1{
     position:absolute; top: 200px; z-index: 40;
-    margin-left: 400px;
+    margin-left: 200px;
   }
 }
 
@@ -182,7 +182,7 @@ body{
 }
 
 .botonGrabar{
-    position: absolute; top: 400px; margin-left: 130px; z-index:40;
+    position: absolute; margin-left: 130px; z-index:40;
 }
 
 .botonEditar{

@@ -1,5 +1,8 @@
 --insertar en asistencia
-INSERT INTO asistencia (idAlumno, idCursoActual,fechaHora, presente, ausente, seRetira, llegaTarde, sancionadoSuspendido,comentario)VALUES('12','1','2022-03-30 20:53','TRUE','FALSE','FALSE','FALSE','FALSE','A la hora');
-INSERT INTO asistencia (idAlumno, idCursoActual,fechaHora, presente, ausente, seRetira, llegaTarde, sancionadoSuspendido,comentario)VALUES('11','2','2022-03-30 20:53','FALSE','TRUE','FALSE','FALSE','FALSE','No se presenta a clases');
-INSERT INTO asistencia (idAlumno, idCursoActual,fechaHora, presente, ausente, seRetira, llegaTarde, sancionadoSuspendido,comentario)VALUES('10','9','2022-03-30 20:53','FALSE','FALSE','TRUE','FALSE','FALSE','Le duele el pelo');
-INSERT INTO asistencia (idAlumno, idCursoActual,fechaHora, presente, ausente, seRetira, llegaTarde, sancionadoSuspendido,comentario)VALUES('7','10','2022-03-30 20:53','FALSE','FALSE','FALSE','TRUE','FALSE','Se quedó dormido');
+INSERT INTO asistencia (idAlumno, idCursoActual, fechaHora, estadoasistencia)
+    VALUES((select idAlumno FROM estudiantes WHERE rut = '20.572.189-4'),(SELECT idCursoActual FROM curso WHERE idAlumno = (SELECT idAlumno FROM estudiantes WHERE rut = '20.572.189-4')), now(), 'Presente');
+INSERT INTO asistencia (idAlumno, idCursoActual, fechaHora, estadoasistencia)
+    VALUES((SELECT idAlumno FROM estudiantes WHERE rut = '20.572.189-4'),(SELECT idCursoActual FROM curso WHERE idAlumno = (SELECT idAlumno FROM estudiantes WHERE rut = '20.372.098-K')), now(), 'Ausente');
+INSERT INTO asistencia (idAlumno, idCursoActual, fechaHora, estadoasistencia)
+    VALUES((SELECT idAlumno FROM estudiantes WHERE rut = '20.572.189-4'),(SELECT idCursoActual FROM curso WHERE idAlumno = (SELECT idAlumno FROM estudiantes WHERE rut = '20.572.189-4')), now(), 'Se retira');
+

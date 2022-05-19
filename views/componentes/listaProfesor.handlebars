@@ -23,8 +23,8 @@
             <th scope="col">Foto</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
+            <th scope="col">Rut</th>
             <th scope="col">Asistencia</th>
-            <th scope="col">Comentario</th>
           </tr>
           {{/if}}
         </thead>
@@ -32,24 +32,21 @@
           {{#each curso}}
           <tr>
             <th scope="row">{{this.row_number}}</th>
-            <td><div><img src="/{{this.foto}}" width="60px" height="60px"></div></td>
+            <td><div><img src="{{this.foto}}" width="60px" height="60px"></div></td>
             <td>{{this.nombre}}</td>
-            <td>{{this.apellido}}</td>
-            <td><select name="asistencia" id="asistencia">
-                <option value="presente">Presente</option>
-                <option value="ausente">Ausente</option>
-                <option value="seRetira">SeRetira</option>
-                <option value="ingresaTarde">IngresaTarde</option>
-                <option value="sancionado">Suspendido</option>
-                </select></td>
-            <td><textarea name="" id="" cols="30" rows="2">{{this.comentario}}</textarea></td>
-          </tr>
+            <td>{{this.apellidos}}</td>
+            <td>{{this.rut}}</td>
+            <td>
+              <a href="/asistencia?rut={{this.rut}}&estado=Presente"><button type="button" class="btn btn-primary">Presente</button></a>
+              <a href="/asistencia?rut={{this.rut}}&estado=Ausente"><button type="button" class="btn btn-secondary">Ausente</button></a>
+              <a href="/asistencia?rut={{this.rut}}&estado=Se Retira"><button type="button" class="btn btn-warning">Se Retira</button></a>
+              <a href="/asistencia?rut={{this.rut}}&estado=Llega Tarde"><button type="button" class="btn btn-info">Llega Tarde</button></a>
+              <a href="/asistencia?rut={{this.rut}}&estado=Sancionado"><button type="button" class="btn  btn-danger">Sancionado</button></a>
+            </td>
            {{/each}}
+          </tr>
         </tbody> 
       </table>
-    </div>
-     <div class="mx-auto" style="width:200px">
-    <a href=""><button class="btn botonGrabar btn-success ms-5 ">Grabar</button></a>
     </div>
 
 

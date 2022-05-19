@@ -73,12 +73,7 @@ CREATE TABLE asistencia(
     idAlumno INT,
     idCursoActual INT NOT NULL,
     fechaHora TIMESTAMP,
-    presente BOOLEAN,
-    ausente BOOLEAN,
-    seRetira BOOLEAN,
-    llegaTarde BOOLEAN,
-    sancionadoSuspendido BOOLEAN,
-    comentario VARCHAR(500)NOT NULL,
+    estadoAsistencia VARCHAR(50),
     FOREIGN KEY (idAlumno) REFERENCES estudiantes(idAlumno),
     FOREIGN KEY (idCursoActual) REFERENCES curso(idCursoActual)
 );
