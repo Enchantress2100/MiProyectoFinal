@@ -3,12 +3,13 @@ require("dotenv").config();
 const { Client } = require("pg");
 const db = async (rut) => {
   const client = new Client(
-    {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
+  //   {
+  //   connectionString: process.env.DATABASE_URL,
+  //   ssl: {
+  //     rejectUnauthorized: false,
+  //   },
+    // }
+  );
     await client.connect();
   const res = await client.query(
     `select es.nombre, es.apellidos, es.edad, es.rut, es.fechaNacimiento,
